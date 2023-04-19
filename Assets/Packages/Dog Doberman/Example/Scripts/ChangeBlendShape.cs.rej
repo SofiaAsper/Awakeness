@@ -1,0 +1,43 @@
+diff a/Assets/Dog Pitbull/Examples/Scripts/ChangeBlendShape.cs b/Assets/Dog Pitbull/Examples/Scripts/ChangeBlendShape.cs	(rejected hunks)
+@@ -35,30 +35,20 @@
+ 		
+ 		
+ 	}
+-	void LateUpdate ()
++	void Update ()
+ 	{
+-		//if (!blendFinished) {
+-			/*if (PreviosBlendCounter > 0) 
++		if (!blendFinished) {
++			if (PreviosBlendCounter > 0) 
+ 			{
+ 				PreviosBlendCounter -= blendSpeed;
+ 				skinnedMeshRenderer.SetBlendShapeWeight (CurrentBlend-1, PreviosBlendCounter);
+-			}*/
+-            if (CurrentBlend == 0)
+-            {
+-            }
+-            else
+-            {
+-
+-			    if (blendCounter < 100f)
+-                {
+-				    skinnedMeshRenderer.SetBlendShapeWeight (CurrentBlend, blendCounter);
+-				    blendCounter += blendSpeed;
+-			    }
+-                else
+-                {
+-                    skinnedMeshRenderer.SetBlendShapeWeight(CurrentBlend, blendCounter);
+-                //blendFinished = true;
+-                }
+-		    }
++			}
++			if (blendCounter < 100f) {
++				skinnedMeshRenderer.SetBlendShapeWeight (CurrentBlend, blendCounter);
++				blendCounter += blendSpeed;
++			} else {
++				blendFinished = true;
++			}
++		}
+ 	}
+ }
