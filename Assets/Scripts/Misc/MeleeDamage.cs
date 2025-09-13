@@ -1,39 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
 public class MeleeDamage : MonoBehaviour
 {
-    public float damageAmount = 30;
-    float headMulti = 1;
-    [SerializeField] GameObject ImpactEffect;
-    bool OneTimeDamage = false;
-    [SerializeField] bool IsRocket;
+    [SerializeField] private float damageAmount = 30f;
+    [SerializeField] private float headMultiplier = 1f;
+    [SerializeField] private GameObject impactEffect;
+    [SerializeField] private bool isRocket;
+
+    private bool oneTimeDamage;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<DamageZone>()!=null)
+        if (oneTimeDamage) return;
+        var zone = other.GetComponent<DamageZone>();
+        if (zone == null) return;
+
+        if (isRocket)
+            StartCoroutine(RocketDamageTime());
+
+        var target = zone.GetComponentInParent<TargetDamageable>();
+        if (target != null)
         {
-            if (OneTimeDamage==true)
-            {
-                return;
-            }
-            if (IsRocket)
-            {
-                StartCoroutine(RocketDamageTime());
-            }
-           
-            other.GetComponent<DamageZone>().GetComponentInParent<TargetDamageable>().SetHitPos(this.transform.position);
-            other.GetComponent<DamageZone>().Damage(damageAmount, headMulti);
-            if (ImpactEffect != null)
-            {
-                Instantiate(ImpactEffect, other.transform.position, other.transform.rotation);
-            }
+            target.SetHitPos(transform.position);
+            zone.Damage(damageAmount, headMultiplier);
         }
+
+        if (impactEffect != null)
+            Instantiate(impactEffect, other.transform.position, other.transform.rotation);
     }
-    IEnumerator RocketDamageTime()
+
+    private IEnumerator RocketDamageTime()
     {
         yield return new WaitForSeconds(0.5f);
-        OneTimeDamage = true;
+        oneTimeDamage = true;
     }
 }

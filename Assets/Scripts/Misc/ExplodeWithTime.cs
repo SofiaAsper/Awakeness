@@ -1,19 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ExplodeWithTime : MonoBehaviour
 {
-    [SerializeField] GameObject explosionEffect;
-    [SerializeField] float ExplosionTime = 3f;
-    [SerializeField] Transform explosionPosition;
+    [SerializeField] private GameObject explosionEffect;
+    [SerializeField] private float explosionDelay = 3f;
+    [SerializeField] private Transform explosionPosition;
+
     public void ExplodeStart()
     {
-        Invoke("ExplodeEnd", ExplosionTime);
+        CancelInvoke(nameof(ExplodeEnd));
+        Invoke(nameof(ExplodeEnd), explosionDelay);
     }
-    void ExplodeEnd()
+
+    private void ExplodeEnd()
     {
-        GameObject explosion= Instantiate(explosionEffect, explosionPosition.position, explosionPosition.rotation);
-        explosion.GetComponent<ParticleSystem>().Play();
+        if (explosionEffect == null || explosionPosition == null) return;
+        var explosion = Instantiate(explosionEffect, explosionPosition.position, explosionPosition.rotation);
+        var ps = explosion.GetComponent<ParticleSystem>();
+        if (ps) ps.Play();
     }
 }
