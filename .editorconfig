@@ -1,0 +1,26 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 4
+
+[*.cs]
+# C# code style
+csharp_new_line_before_open_brace = all
+csharp_indent_case_contents = true
+csharp_indent_switch_labels = true
+csharp_preserve_single_line_blocks = true
+csharp_preserve_single_line_statements = false
+dotnet_sort_system_directives_first = true
+dotnet_separate_import_directive_groups = true
+
+# Naming conventions
+# (Unity generally uses PascalCase for classes, methods; camelCase for fields)
+
+[*.{cs,shader}]
+indent_style = space
+indent_size = 4
