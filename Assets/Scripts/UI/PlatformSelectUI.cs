@@ -12,7 +12,7 @@ public class PlatformSelectUI : MonoBehaviour
     {
         platform = SystemInfo.operatingSystem;
 
-        if (platform.Contains("Windows") || (Input.GetJoystickNames().Length > 0))
+        if (platform.Contains("Windows") || (Input.GetJoystickNames().Length > 0) || (platform.Contains("Mac")))
         {
             // EditorUtility.DisplayDialog("hi im conntroller", Input.GetJoystickNames().ToString(), "OK", "Cancel");
             gameObject.SetActive(false);

@@ -383,7 +383,7 @@ public class GunController : MonoBehaviour
                     ChangeSelectedGun(1);
                 }
             }
-            if (platform.Contains("Windows"))
+            if (platform.Contains("Windows") ||  platform.Contains("Mac") )
             {
                 float scroll = input.mouseScroll;
                 if (scroll >= 0.1f) ChangeSelectedGun(1);
@@ -696,7 +696,7 @@ public class GunController : MonoBehaviour
         float force = gun.initialForce;
         if (gunHandler.gun.canFireWhileDelayed)
         
-        if(!input.aim || !SystemInfo.operatingSystem.Contains("Windows"))
+        if(!input.aim || !SystemInfo.operatingSystem.Contains("Windows") || !SystemInfo.operatingSystem.Contains("Mac") )
         {
             force *= DelayPercent();
 

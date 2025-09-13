@@ -48,7 +48,7 @@ public class SaveData : MonoBehaviour
         // skyBoxController = skyBoxStats.GetComponent<SkyBoxController>(); // TODO : uncomment this later
 
 
-        if (platform.Contains("Windows"))
+        if (platform.Contains("Windows") || (platform.Contains("Mac")))
         {
             isPC = true;
             path = Application.dataPath;

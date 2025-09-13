@@ -9,7 +9,7 @@ public class PauseGame : MonoBehaviour
    public bool pausedGame = false;
    
    private void Update() {
-    if (Input.GetKeyDown(KeyCode.Escape)|| Input.GetKeyDown(KeyCode.F))
+    if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.F))
        {
              if (pausedGame == false)
              {
@@ -28,12 +28,3 @@ public class PauseGame : MonoBehaviour
 
 
 }
-
-
-
-
-
-
-
-
-

@@ -151,6 +151,8 @@ public class Spawner : MonoBehaviour
         {
             if (poolBossPrinces[i].activeInHierarchy == false)
             {
+                Vector3 spawnPosition = new Vector3(Random.Range(-spawnOffset.x, spawnOffset.x), 1f, Random.Range(-spawnOffset.z, spawnOffset.z));
+                poolBossPrinces[i].transform.position = spawnPosition + transform.TransformPoint(0, 0, 0);
                 poolBossPrinces[i].SetActive(true);
                 return;
             }
@@ -159,6 +161,8 @@ public class Spawner : MonoBehaviour
         {
             if (poolBossBrute[i].activeInHierarchy == false)
             {
+                Vector3 spawnPosition = new Vector3(Random.Range(-spawnOffset.x, spawnOffset.x), 1f, Random.Range(-spawnOffset.z, spawnOffset.z));
+                poolBossBrute[i].transform.position = spawnPosition + transform.TransformPoint(0, 0, 0);
                 poolBossBrute[i].SetActive(true);
                 return;
             }
@@ -167,6 +171,8 @@ public class Spawner : MonoBehaviour
         {
             if (poolBossPregSit[i].activeInHierarchy == false)
             {
+                Vector3 spawnPosition = new Vector3(Random.Range(-spawnOffset.x, spawnOffset.x), 1f, Random.Range(-spawnOffset.z, spawnOffset.z));
+                poolBossPregSit[i].transform.position = spawnPosition + transform.TransformPoint(0, 0, 0);
                 poolBossPregSit[i].SetActive(true);
                 return;
             }
@@ -175,6 +181,8 @@ public class Spawner : MonoBehaviour
         {
             if (poolBossPreg[i].activeInHierarchy == false)
             {
+                Vector3 spawnPosition = new Vector3(Random.Range(-spawnOffset.x, spawnOffset.x), 1f, Random.Range(-spawnOffset.z, spawnOffset.z));
+                poolBossPreg[i].transform.position = spawnPosition + transform.TransformPoint(0, 0, 0);
                 poolBossPreg[i].SetActive(true);
                 return;
             }
@@ -183,6 +191,8 @@ public class Spawner : MonoBehaviour
         {
             if (poolBossSlobber[i].activeInHierarchy == false)
             {
+                Vector3 spawnPosition = new Vector3(Random.Range(-spawnOffset.x, spawnOffset.x), 1f, Random.Range(-spawnOffset.z, spawnOffset.z));
+                poolBossSlobber[i].transform.position = spawnPosition + transform.TransformPoint(0, 0, 0);
                 poolBossSlobber[i].SetActive(true);
                 return;
             }

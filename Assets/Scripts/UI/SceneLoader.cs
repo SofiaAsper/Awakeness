@@ -15,10 +15,4 @@ public class SceneLoader : MonoBehaviour
     {
          SceneManager.LoadScene(0); // change it to go back to main menu
     }
-
-
-
-
-
-
 }

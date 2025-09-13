@@ -27,7 +27,7 @@ public class PlayerInput : MonoBehaviour
         {
             Vector2 i = Vector2.zero;
 
-            if (platform.Contains("Windows") || (Input.GetJoystickNames().Length > 0))
+            if (platform.Contains("Windows") ||  platform.Contains("Mac") || (Input.GetJoystickNames().Length > 0))
             {
                 i.x = Input.GetAxis("Horizontal");
                 i.y = Input.GetAxis("Vertical");
@@ -52,7 +52,7 @@ public class PlayerInput : MonoBehaviour
         get
         {
             Vector2 i = Vector2.zero;
-            if (platform.Contains("Windows") || (Input.GetJoystickNames().Length > 0))
+            if (platform.Contains("Windows") ||  platform.Contains("Mac") || (Input.GetJoystickNames().Length > 0))
             {
                 i.x = Input.GetAxis("Horizontal");
                 i.y = Input.GetAxis("Vertical");
@@ -85,7 +85,7 @@ public class PlayerInput : MonoBehaviour
             {
                 return Input.GetKey(KeyCode.JoystickButton8);
             }
-            else if (platform.Contains("Windows"))
+            else if (platform.Contains("Windows") || platform.Contains("Mac") )
             {
                 return Input.GetKey(KeyCode.LeftShift);
             }
@@ -106,7 +106,7 @@ public class PlayerInput : MonoBehaviour
             {
                 return Input.GetKey(KeyCode.JoystickButton1);
             }
-            else if (platform.Contains("Windows"))
+            else if (platform.Contains("Windows") ||  platform.Contains("Mac") )
             {
                 return Input.GetKey(KeyCode.LeftControl);
             }
@@ -136,7 +136,7 @@ public class PlayerInput : MonoBehaviour
             {
                 return Input.GetKeyDown(KeyCode.JoystickButton1);
             }
-            else if (platform.Contains("Windows"))
+            else if (platform.Contains("Windows") ||  platform.Contains("Mac") )
             {
                 return Input.GetKeyDown(KeyCode.LeftControl);
             }
@@ -160,7 +160,7 @@ public class PlayerInput : MonoBehaviour
             {
                 return Input.GetKey(KeyCode.JoystickButton6);
             }
-            else if (platform.Contains("Windows"))
+            else if (platform.Contains("Windows") ||  platform.Contains("Mac") )
             {
                 return Input.GetKeyDown(interactKey);
             }
@@ -193,7 +193,7 @@ public class PlayerInput : MonoBehaviour
             {
                 return Input.GetKey(KeyCode.JoystickButton2);
             }
-            else if (platform.Contains("Windows"))
+            else if (platform.Contains("Windows") ||  platform.Contains("Mac") )
             {
                 return Input.GetKey(KeyCode.R);
             }
@@ -229,7 +229,7 @@ public class PlayerInput : MonoBehaviour
             {
                 return Input.GetKey(KeyCode.JoystickButton4);
             }
-            else if (platform.Contains("Windows"))
+            else if (platform.Contains("Windows") ||  platform.Contains("Mac") )
             {
                 return Input.GetMouseButtonDown(1);
             }
@@ -265,7 +265,7 @@ public class PlayerInput : MonoBehaviour
                 // }
                 // else return false;
             }
-            else if (platform.Contains("Windows"))
+            else if (platform.Contains("Windows") ||  platform.Contains("Mac") )
             {
                 return Input.GetMouseButton(1);
             }
@@ -304,7 +304,7 @@ public class PlayerInput : MonoBehaviour
             {
                 return Input.GetKey(KeyCode.JoystickButton5);
             }
-            else if (platform.Contains("Windows"))
+            else if (platform.Contains("Windows") ||  platform.Contains("Mac") )
             {
                 return Input.GetMouseButton(0);
             }
@@ -404,7 +404,7 @@ public class PlayerInput : MonoBehaviour
             else if (jumpTimer > 0)
                 jump = true;
         }
-        else if (platform.Contains("Windows"))
+        else if (platform.Contains("Windows") ||  platform.Contains("Mac") )
         {
             if (!Input.GetKey(KeyCode.Space))
             {

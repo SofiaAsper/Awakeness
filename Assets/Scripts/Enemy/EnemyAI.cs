@@ -84,13 +84,7 @@ public class EnemyAI : MonoBehaviour
         if (isProvoked) EngagePlayer();
         else if (distanceToPlayer <= chaseRange)
             isProvoked = true;
-        else WonderZombie();
-
-        //stop enemy animations when far from player  
-        //if (distanceToPlayer > 4 * chaseRange) anim.enabled = false;
-        //else anim.enabled = true;
-
-        
+        else WonderZombie();        
 
     }
     bool dogStop = false;
@@ -216,8 +210,8 @@ public class EnemyAI : MonoBehaviour
         if (damageable.isDead()) return;
         if (!navMeshAgent.isOnNavMesh) 
         {
-            // gameObject.SetActive(false);
-            Debug.Log("enemy is not on navmesh" + gameObject.name);  // TODO : delete after fix
+            gameObject.SetActive(false);
+            Debug.Log("enemy is not on navmesh" + gameObject.name);
         }
         timer += updateTime;
         anim.SetBool("wonder", true);
@@ -231,8 +225,8 @@ public class EnemyAI : MonoBehaviour
             BruteBossHandler();
             timer = 0;
         }
-        //check if the distance to the player is great anouth to stop the audio
-        if (distanceToPlayer > 3 * chaseRange) 
+        //check if the distance to the player is great anougth to stop the audio
+        if (distanceToPlayer > 2 * chaseRange) 
             audioManager.StopAllAudio();
         else
         {
@@ -240,7 +234,6 @@ public class EnemyAI : MonoBehaviour
             audioManager.Play("Wondering");
         }
     }
-
 
     public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)
     {
@@ -250,7 +243,6 @@ public class EnemyAI : MonoBehaviour
         NavMesh.SamplePosition(randDirection, out navHit, dist, layermask);
         return navHit.position;
     }
-
 
     public void StopMovingZombie()
     {
@@ -284,6 +276,7 @@ public class EnemyAI : MonoBehaviour
     public void UpgradeEnemy(int level)
     {
         damage += (2 * levelUp.level);
+        chaseRange += 5;
     }
 
 

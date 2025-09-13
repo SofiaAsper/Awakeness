@@ -18,7 +18,6 @@ public class PauseScreen : MonoBehaviour
         pauseScreenCanvas = GetComponent<Canvas>();
         settingsCanvas.SetActive(false);
         pauseScreenCanvas.enabled = false;
-
     }
 
     void LateUpdate()

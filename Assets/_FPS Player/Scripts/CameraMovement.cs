@@ -84,7 +84,7 @@ public class CameraMovement : MonoBehaviour
             sensitivity = joystickSensitivity;
             savedRegSensitivity = joystickSensitivity;
         }
-        else if (platform.Contains("Windows"))
+        else if (platform.Contains("Windows") || platform.Contains("Mac"))
         {
             mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
             sensitivity = mouseSensitivity;
@@ -140,7 +140,7 @@ public class CameraMovement : MonoBehaviour
 
     void LimitFPS()
     {
-        if (platform.Contains("Windows"))
+        if (platform.Contains("Windows") || platform.Contains("Mac"))
         {
             Application.targetFrameRate = 60;
         }

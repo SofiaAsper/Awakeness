@@ -40,7 +40,7 @@ public class SettingsMenu : MonoBehaviour
             resOBJ.SetActive(false);
             resToggle.SetActive(true);
         }
-        else if (platform.Contains("Windows"))
+        else if (platform.Contains("Windows") || (platform.Contains("Mac")))
         {
             resOBJ.SetActive(true);
             resToggle.SetActive(false);
@@ -107,7 +107,7 @@ public class SettingsMenu : MonoBehaviour
         {
             cameraMovement.joystickSensitivity = new Vector2(value, value);
         }
-        else if (platform.Contains("Windows"))
+        else if (platform.Contains("Windows") || (platform.Contains("Mac")))
         {
             cameraMovement.mouseSensitivity = new Vector2(value, value);
         }
